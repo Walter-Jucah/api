@@ -1,7 +1,11 @@
 package com.spring.api.Modelo;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Pessoa {
 
+    private int codigo;
     private String nome;
     private int idade;
 
