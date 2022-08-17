@@ -1,10 +1,17 @@
 package com.spring.api.Modelo;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "pessoas")
 public class Pessoa {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codigo;
     private String nome;
     private int idade;
@@ -23,6 +30,14 @@ public class Pessoa {
 
     public void setIdade(int idade) {
         this.idade = idade;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
 }
