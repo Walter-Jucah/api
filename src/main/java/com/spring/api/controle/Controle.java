@@ -47,6 +47,21 @@ public class Controle {
         acao.delete(obj);
     }
 
+    @GetMapping("/api/contador")
+    public long contador() {
+        return acao.count();
+    }
+
+    @GetMapping("/api/ordenarNomes")
+    public List<Pessoa> ordenarNomes() {
+        return acao.findByOrderByNome();
+    }
+
+    @GetMapping("/api/ordenarNomes2")
+    public List<Pessoa> ordenarNomes2() {
+        return acao.findByNomeOrderByIdade("Ralf");
+    }
+
     @GetMapping("")
     public String mensagem() {
         return "Hello World";
