@@ -62,8 +62,9 @@ public class Controle {
         return acao.findByNomeOrderByIdade("Ralf");
     }
 
+    @GetMapping("/api/nomeContem")
     public List<Pessoa> nomeContem() {
-        return acao.findByNomeContaining("");
+        return acao.findByNomeContaining("a");
     }
 
     @GetMapping("")
