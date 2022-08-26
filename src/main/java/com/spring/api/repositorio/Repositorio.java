@@ -2,6 +2,7 @@ package com.spring.api.repositorio;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -19,4 +20,11 @@ public interface Repositorio extends CrudRepository<Pessoa, Integer> {
     List<Pessoa> findByNomeOrderByIdade(String nome);
 
     List<Pessoa> findByNomeContaining(String termo);
+
+    List<Pessoa> findByNomeStartsWith(String termo);
+
+    List<Pessoa> findByNomeEndsWith(String termo);
+
+    @Query
+    int somaIdade();
 }
