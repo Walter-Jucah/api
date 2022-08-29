@@ -25,6 +25,6 @@ public interface Repositorio extends CrudRepository<Pessoa, Integer> {
 
     List<Pessoa> findByNomeEndsWith(String termo);
 
-    @Query
+    @Query(value = "SELECT SUM()")
     int somaIdade();
 }
