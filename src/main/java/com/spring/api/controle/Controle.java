@@ -77,6 +77,16 @@ public class Controle {
         return acao.findByNomeEndsWith("a");
     }
 
+    @GetMapping("/api/somaIdades")
+    public int somaIdades() {
+        return acao.somaIdades();
+    }
+
+    @GetMapping("/api/idadeMaiorIgual")
+    public List<Pessoa> idadeMaiorIgual() {
+        return acao.idadeMaiorIgual(18);
+    }
+
     @GetMapping("")
     public String mensagem() {
         return "Hello World";

@@ -25,6 +25,10 @@ public interface Repositorio extends CrudRepository<Pessoa, Integer> {
 
     List<Pessoa> findByNomeEndsWith(String termo);
 
-    @Query(value = "SELECT SUM()")
-    int somaIdade();
+    @Query(value = "SELECT SUM(idade) FROM pessoas", nativeQuery = true)
+    int somaIdades();
+
+    @Query(value = "SELECT * FROM pessoas WHERE idade >= :idade", nativeQuery = true)
+    List<Pessoa> idadeMaiorIgual(int idade);
+
 }
