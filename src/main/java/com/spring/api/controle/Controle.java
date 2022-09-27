@@ -1,6 +1,5 @@
 package com.spring.api.controle;
 
-import java.security.Provider.Service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +32,8 @@ public class Controle {
     }
 
     @GetMapping("/api")
-    public List<Pessoa> selecionar() {
-        return acao.findAll();
+    public ResponseEntity<?> selecionar() {
+        return servico.selecionar();
     }
 
     @GetMapping("/api/{codigo}")

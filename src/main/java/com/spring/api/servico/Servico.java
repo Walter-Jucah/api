@@ -30,4 +30,11 @@ public class Servico {
             return new ResponseEntity<>(acao.save(obj), HttpStatus.CREATED);
         }
     }
+
+    // Método para selecionar pessoas
+
+    public ResponseEntity<?> selecionar() {
+        return new ResponseEntity<>(acao.findAll(), HttpStatus.OK);
+    }
+
 }
