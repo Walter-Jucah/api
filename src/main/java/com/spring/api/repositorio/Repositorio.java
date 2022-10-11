@@ -15,8 +15,6 @@ public interface Repositorio extends CrudRepository<Pessoa, Integer> {
 
     Pessoa findByCodigo(int codigo);
 
-    Pessoa countByCodigo(int codigo);
-
     List<Pessoa> findByOrderByNome();
 
     List<Pessoa> findByNomeOrderByIdade(String nome);
@@ -33,4 +31,5 @@ public interface Repositorio extends CrudRepository<Pessoa, Integer> {
     @Query(value = "SELECT * FROM pessoas WHERE idade >= :idade", nativeQuery = true)
     List<Pessoa> idadeMaiorIgual(int idade);
 
+    int countByCodigo(int codigo);
 }
