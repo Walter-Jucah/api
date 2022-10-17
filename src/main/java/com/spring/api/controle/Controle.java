@@ -2,6 +2,8 @@ package com.spring.api.controle;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.spring.api.Modelo.Cliente;
 import com.spring.api.Modelo.Pessoa;
 import com.spring.api.repositorio.Repositorio;
 import com.spring.api.servico.Servico;
@@ -42,15 +45,14 @@ public class Controle {
     }
 
     @PutMapping("/api")
-    public Pessoa editar(@RequestBody Pessoa obj) {
-        return acao.save(obj);
+    public ResponseEntity<?> editar(@RequestBody Pessoa obj) {
+        return servico.editar(obj);
     }
 
     @DeleteMapping("/api/{codigo}")
-    public void remover(@PathVariable int codigo) {
+    public ResponseEntity<?> remover(@PathVariable int codigo) {
+        return servico.remover(codigo);
 
-        // Pessoa obj = selecionarPeloCodigo(codigo);
-        // acao.delete(obj);
     }
 
     @GetMapping("/api/contador")
@@ -116,5 +118,10 @@ public class Controle {
     @GetMapping("/status")
     public ResponseEntity<?> status() {
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @PostMapping("/cliente")
+    public void cliente(@Valid @RequestBody Cliente obj) {
+
     }
 }
